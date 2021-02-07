@@ -1,0 +1,22 @@
+<div *ngIf="!!user && isView" class="contact-view-modal">
+    <div class="contact-view-modal-avatar d-flex justify-content-center pt-2 py-3">
+        <div class="contact-view-modal-avatar-border">
+            <span class="user-circle"><mat-icon>account_circle</mat-icon></span>
+        </div>
+    </div>
+    <div class="contact-name text-center py-3">
+        <span>{{user?.firstName}}  {{user?.lastName}}</span>
+    </div>
+    <div class="contact-info px-3 py-4">
+        <div class="row no-gutters">
+            <div class="col-5 py-3">First Name</div>
+            <div class="col-7 py-3">: &nbsp;{{user?.firstName}}</div>
+            <div class="col-5 py-3">Last Name</div>
+            <div class="col-7 py-3">: &nbsp;{{user?.lastName}}</div>
+            <div class="col-5 py-3">Mobile</div>
+            <div class="col-7 py-3">: &nbsp;{{user?.mobileNumber}}</div>
+            <div class="col-5 py-3">Email</div>
+            <div class="col-7 py-3 ellipsis">: &nbsp;{{user?.email}}</div>
+        </div>
+    </div>
+</div>

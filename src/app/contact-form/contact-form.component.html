@@ -1,0 +1,40 @@
+<div class="contact-form py-3">
+    <form [formGroup]="contactForm">
+        <mat-form-field>
+            <mat-label>
+                First Name
+            </mat-label>
+            <input [(ngModel)]="userData.firstName" formControlName="firstName" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                Last Name
+            </mat-label>
+            <input [(ngModel)]="userData.lastName" formControlName="lastName" matInput type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                Email
+            </mat-label>
+            <input [(ngModel)]="userData.email" [readonly]="toPerform === 'edit' " formControlName="email" matInput
+                   type="text">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>
+                Mobile
+            </mat-label>
+            <input [(ngModel)]="userData.mobileNumber" formControlName="mobile" matInput
+                   oninput="this.value = this.value.replace(/[^0-9\.]+/g, '')" type="text">
+        </mat-form-field>
+        <div class="row no-gutters py-2">
+            <div class="col-6 text-center">
+                <button (click)="submitData(userData )" [disabled]="contactForm.invalid" class=" btn-width" mat-button>
+                    Sumbit
+                </button>
+            </div>
+            <div class="col-6 text-center">
+                <button (click)="cancel()" class=" btn-width" mat-button>Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

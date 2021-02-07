@@ -1,0 +1,45 @@
+<div class="contact">
+    <div class="contact-header">
+        <mat-toolbar>Contact</mat-toolbar>
+    </div>
+    <div class="row no-gutters">
+        <div class="col-12 col-sm-6 contact-list">
+            <div class="container py-3">
+                <div class="row no-gutters">
+                    <div class="col-12 col-sm-6 py-2">
+                        <div class="d-flex contact-list-search">
+                            <input class="contact-list-search-input" placeholder="search" type="text">
+                            <span class="d-flex align-self-center"> <mat-icon
+                                class="search-icon-color">search</mat-icon></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6 py-2 px-3  text-center">
+                        <button (click)="addContact()" class="add-contact-btn" mat-button>Add Contact</button>
+                    </div>
+                </div>
+                <div class="col-12 contact-table py-3 px-0">
+                    <div class="row no-gutters contact-table-header">
+                        <div class="col-4">First Name</div>
+                        <div class="col-4">Last Name</div>
+                        <div class="col-4">Controls</div>
+                    </div>
+                    <ng-container *ngFor="let user of users; let i = index">
+                        <div (click)="viewContact(user, i)"
+                             [ngClass]="selectedUser?.email === user.email? 'highlightRow' : ''"
+                             class="contact-row row no-gutters px-2 py-3 cursor-pointer">
+                            <div class="col-4">{{user?.firstName}}</div>
+                            <div class="col-4">{{user?.lastName}}</div>
+                            <div class="col-4">
+                                <span (click)="editContact(user); $event.stopPropagation()" class="pr-2 pr-sm-3 py-2 cursor-pointer icon-color"><mat-icon class="trash-icon" mat-icon>edit</mat-icon></span>
+                                <span (click)="deleteContact(user); $event.stopPropagation()" class="pr-2 pr-sm-3 py-2 cursor-pointer icon-color"><mat-icon class="trash-icon" mat-icon>delete</mat-icon></span>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 contact-view d-flex justify-content-center py-4">
+            <app-contact-view [isView]="contactView" [user]="selectedUser" class="view-height px-3"></app-contact-view>
+        </div>
+    </div>
+</div>

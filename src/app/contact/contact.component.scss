@@ -1,0 +1,68 @@
+.contact {
+    &-header {
+        max-height: 60px;
+
+        ::ng-deep .mat-toolbar {
+            font-size: 25px;
+        }
+    }
+
+    &-list {
+        &-search {
+            border: 1px solid #e8e8e8;
+            border-radius: 30px;
+            height: 40px;
+            background: #e8e8e8;
+
+            &-input {
+                border: none;
+                margin-left: 20px;
+                font-size: 13px;
+                background: #e8e8e8;
+                width: calc(100% - 50px);
+            }
+
+            &-input:focus {
+                outline: 0px;
+            }
+
+            .search-icon-color {
+                color: #0000004d;
+            }
+        }
+
+        .add-contact-btn {
+            background-image: linear-gradient(to right, #f9c974 0%, #ff87a3 51%);
+            height: 40px;
+            color: white;
+        }
+
+        .contact-table-header {
+            background: #ebebeb;
+            font-size: 15px;
+            padding: 12px;
+            font-weight: bold;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        .highlightRow {
+            background: #ebebeb5e;
+        }
+
+        .icon-color {
+            color: #ff0000d9;
+        }
+    }
+
+    &-view {
+        @media (min-width: 576px) {
+            height: calc(100vh - 60px);
+            .view-height {
+                width: 70%;
+            }
+        }
+    }
+}
