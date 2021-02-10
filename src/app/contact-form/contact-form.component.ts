@@ -28,7 +28,7 @@ export class ContactFormComponent implements OnInit {
         dialogRef.disableClose = true;
     }
 
-    get f() {
+    get f(): any {
         return this.contactForm.controls;
     }
 
@@ -36,8 +36,12 @@ export class ContactFormComponent implements OnInit {
         this.contactForm = this.formBuilder.group({
             firstName: ['', Validators.compose([
                 Validators.required,
+                Validators.minLength(3)
             ])],
-            lastName: ['', Validators.required],
+            lastName: ['', Validators.compose([
+                Validators.required,
+                Validators.minLength(3)
+            ])],
             email: ['', Validators.compose([
                 Validators.required,
                 Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$')
@@ -45,6 +49,10 @@ export class ContactFormComponent implements OnInit {
             mobile: ['', Validators.compose([
                 Validators.required,
                 Validators.minLength(5)
+            ])],
+            company: ['', Validators.compose([
+                Validators.required,
+                Validators.minLength(3)
             ])]
         });
     }

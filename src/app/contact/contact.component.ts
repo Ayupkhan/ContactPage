@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {ContactFormComponent} from '../contact-form/contact-form.component';
 import {ContactService} from '../Services/contact.service';
-import {UserModal} from '../Interfaces/user-modal';
+import {UserModal, UserSample} from '../Interfaces/user-modal';
 
 @Component({
     selector: 'app-contact',
@@ -13,11 +13,17 @@ export class ContactComponent implements OnInit {
     users: UserModal[] = [];
     selectedUser: UserModal;
     contactView: boolean;
+    loggedInUser: any;
+    // availableUserList: any[] = [];
 
     constructor(private dialog: MatDialog, private contactSvc: ContactService) {
     }
 
     ngOnInit(): void {
+        this.users = [...UserSample];
+        this.selectedUser = this.users[0];
+        this.loggedInUser = this.users[0]
+        this.contactView = true;
         this.contactSvc.userData.subscribe(res => {
             this.users = res;
         });
@@ -59,5 +65,8 @@ export class ContactComponent implements OnInit {
     deleteContact(user): void {
         this.contactView = false;
         this.contactSvc.deleteContact(user);
+    }
+    selectLoginUser(user): void {
+        this.loggedInUser = user
     }
 }

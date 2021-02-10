@@ -16,6 +16,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {ContactService} from './Services/contact.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
         MatButtonModule,
         MatDialogModule,
         MatFormFieldModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatCheckboxModule
     ],
     providers: [
         ContactService

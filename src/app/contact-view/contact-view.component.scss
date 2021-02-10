@@ -2,18 +2,21 @@
     background: #e8e8e8;
 
     &-avatar {
+
         &-border {
             border-radius: 50%;
             width: 100px;
-            background: #efe80b73;
-        }
-
-        .user-circle {
-            display: flex;
             height: 100px;
-            width: 100px;
+            display: flex;
             justify-content: center;
             align-items: center;
+            background: #efe80b73;
+        }
+        .user-circle {
+            font-size: 0px;
+        }
+        .user-circle:first-letter {
+            font-size: 30px;
         }
     }
 

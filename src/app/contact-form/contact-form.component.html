@@ -4,14 +4,18 @@
             <mat-label>
                 First Name
             </mat-label>
-            <input [(ngModel)]="userData.firstName" formControlName="firstName" matInput type="text">
+            <input [(ngModel)]="userData.firstName" formControlName="firstName" matInput maxlength="15" type="text">
         </mat-form-field>
+        <div *ngIf="f.firstName.touched && f.firstName.errors?.required" class="form-error">First Name is required</div>
+        <div *ngIf="f.firstName.errors?.minlength" class="form-error">Name must be at least 3 characters long</div>
         <mat-form-field>
             <mat-label>
                 Last Name
             </mat-label>
-            <input [(ngModel)]="userData.lastName" formControlName="lastName" matInput type="text">
+            <input [(ngModel)]="userData.lastName" formControlName="lastName" matInput maxlength="15" type="text">
         </mat-form-field>
+        <div *ngIf="f.lastName.touched && f.lastName.errors?.required" class="form-error">Last Name is required</div>
+        <div *ngIf="f.lastName.errors?.minlength" class="form-error">Name must be at least 3 characters long</div>
         <mat-form-field>
             <mat-label>
                 Email
@@ -19,17 +23,31 @@
             <input [(ngModel)]="userData.email" [readonly]="toPerform === 'edit' " formControlName="email" matInput
                    type="text">
         </mat-form-field>
+        <div *ngIf="f.email.touched && f.email.errors?.required" class="form-error">Email is required</div>
+        <div *ngIf="f.email.errors?.pattern" class="form-error">Enter valid email</div>
         <mat-form-field>
             <mat-label>
                 Mobile
             </mat-label>
             <input [(ngModel)]="userData.mobileNumber" formControlName="mobile" matInput
-                   oninput="this.value = this.value.replace(/[^0-9\.]+/g, '')" type="text">
+                   maxlength="15" oninput="this.value = this.value.replace(/[^0-9\.]+/g, '')" type="text">
         </mat-form-field>
-        <div class="row no-gutters py-2">
+        <div *ngIf="f.mobile.touched && f.mobile.errors?.required" class="form-error">Mobile Number is required</div>
+        <div *ngIf="f.mobile.errors?.minlength" class="form-error">Mobile Number must be at least 5 characters long
+        </div>
+        <mat-form-field>
+            <mat-label>
+                Company
+            </mat-label>
+            <input [(ngModel)]="userData.company" formControlName="company" matInput maxlength="15" type="text">
+        </mat-form-field>
+        <div *ngIf="f.company.touched && f.company.errors?.required" class="form-error">Company name is required</div>
+        <div *ngIf="f.company.errors?.minlength" class="form-error">Company name must be at least 3 characters long
+        </div>
+        <div class="row no-gutters pb-2 pt-3">
             <div class="col-6 text-center">
                 <button (click)="submitData(userData )" [disabled]="contactForm.invalid" class=" btn-width" mat-button>
-                    Sumbit
+                    Submit
                 </button>
             </div>
             <div class="col-6 text-center">

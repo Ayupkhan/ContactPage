@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import {UserModal} from '../Interfaces/user-modal';
+import {UserModal, UserSample} from '../Interfaces/user-modal';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
@@ -13,6 +13,7 @@ export class ContactService {
     constructor(
         private snackbar: MatSnackBar
     ) {
+        this.users = [...UserSample]
     }
 
     addContact(newUser, action): void {
