@@ -17,6 +17,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {ContactService} from './Services/contact.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { BackgroundDirective } from './background.directive';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         AppComponent,
         ContactComponent,
         ContactViewComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        BackgroundDirective
     ],
     imports: [
         BrowserModule,

@@ -14,7 +14,6 @@ export class ContactComponent implements OnInit {
     selectedUser: UserModal;
     contactView: boolean;
     loggedInUser: any;
-    // availableUserList: any[] = [];
 
     constructor(private dialog: MatDialog, private contactSvc: ContactService) {
     }
@@ -22,10 +21,11 @@ export class ContactComponent implements OnInit {
     ngOnInit(): void {
         this.users = [...UserSample];
         this.selectedUser = this.users[0];
-        this.loggedInUser = this.users[0]
+        this.loggedInUser = this.users[0];
         this.contactView = true;
         this.contactSvc.userData.subscribe(res => {
             this.users = res;
+            this.loggedInUser = this.users[0];
         });
     }
 
@@ -67,6 +67,6 @@ export class ContactComponent implements OnInit {
         this.contactSvc.deleteContact(user);
     }
     selectLoginUser(user): void {
-        this.loggedInUser = user
+        this.loggedInUser = user;
     }
 }

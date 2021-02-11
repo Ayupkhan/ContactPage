@@ -15,17 +15,17 @@ export const UserSample  =  [
         company: 'Benseron'
     },
     {
+        firstName: 'Mike',
+        lastName: 'Huston',
+        email: 'mike@gmail.com',
+        mobileNumber: '5656565',
+        company: 'Huston'
+    },
+    {
         firstName: 'Test',
         lastName: 'User',
         email: 'test@gmail.com',
         mobileNumber: '5656565',
         company: 'test'
-    },
-    {
-        firstName: 'Doodleblue',
-        lastName: 'Innovations',
-        email: 'doodleblue@gmail.com',
-        mobileNumber: '5656565',
-        company: 'Doodleblue'
     }
 ];
